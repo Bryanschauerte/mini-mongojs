@@ -1,8 +1,12 @@
 // Dependencies
 var express = require('express');
-var mongojs = require('mongojs');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var mongojs = require('mongojs');
+
+// Mongo
+var db = mongojs('library');
+var Book = db.collection('books');
 
 // Express
 var app = express();
@@ -11,44 +15,55 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// Select Connection
-var db = mongojs('library');
-var books = db.collection('books');
-
-// Endpoints
+// Endpoints -- CRUD
 
 // CREATE
 app.post('/books', function(req, res) {
-	books.insert(req.body, function(err, book) {
-		 console.log("created", err, book);
-		 res.json(book);
-	});
+  Book.insert(req.body, function(err, result) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(result);
+    }
+  });
 });
 
 // READ
 app.get('/books', function(req, res) {
-  console.log('req.query: ', req.query);
-  Sighting.find(req.query)
-  .exec(function(err, result) {
-    if (err) return res.status(500).send(err);
-    res.send(result);
+  Book.find({}, function(err, result) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(result);
+    }
   });
 });
 
 // UPDATE
 app.put('/books/:id', function(req, res) {
-  Sighting.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
-    if (err) return res.status(500).send(err);
-    res.send(result);
+  Book.update({title: mongojs.ObjectId(req.params.id)}, req.body, function(err, result) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(result);
+    }
   });
 });
 
 // DELETE
-app.delete('/books/:id', function(req, res) {
-  Sighting.findByIdAndRemove(req.params.id, function(err, result) {
-    if (err) return res.status(500).send(err);
-    res.send(result);
+app.delete('/books', function(req, res) {
+  Book.remove(req.query, function(err, result) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(result);
+    }
   });
+});
+
+// Connection
+app.listen(3000, function() {
+  console.log('listening on port 3000');
 });
 
 // API Connection

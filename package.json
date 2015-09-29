@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/dallincrane/mini-birds-mongojs.git"
   },
-  "author": "",
+  "author": "Dallin Crane",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dallincrane/mini-birds-mongojs/issues"

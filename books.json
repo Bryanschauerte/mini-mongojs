@@ -1,25 +1,25 @@
 // This is dummy data you can use for your app.
 
 {
-    "books": [{
-        "title": "code words and stuff",
-        "author": "Master Splinter",
-        "genre": "how-to"
-    },{
-        "title": "Homer Simpson: A Tale Of American Awesomeness",
-        "author": "Hulk Hogan",
-        "genre": "biographies"
-    },{
-        "title": "Rick and Morty",
-        "author": "Dan Harmon",
-        "genre": "unknown"
-    },{
-        "title": "the space bar and you",
-        "author": "the greatest generation",
-        "genre": "how-to"
-    },{
-        "title": "How To Frolick",
-        "author": "Richard Simmons",
-        "genre": "how-to"
-    }]
+  "books": [{
+    "title": "code words and stuff",
+    "author": "Master Splinter",
+    "genre": "how-to"
+  },{
+    "title": "Homer Simpson: A Tale Of American Awesomeness",
+    "author": "Hulk Hogan",
+    "genre": "biographies"
+  },{
+    "title": "Rick and Morty",
+    "author": "Dan Harmon",
+    "genre": "unknown"
+  },{
+    "title": "the space bar and you",
+    "author": "the greatest generation",
+    "genre": "how-to"
+  },{
+    "title": "How To Frolick",
+    "author": "Richard Simmons",
+    "genre": "how-to"
+  }]
 }
